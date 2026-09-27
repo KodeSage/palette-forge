@@ -1,5 +1,7 @@
 <div align="center">
 
+[NPM PACKAGE LINK ](https://www.npmjs.com/package/palette-forge)
+
 <img src="https://raw.githubusercontent.com/KodeSage/palette-forge/main/assets/hero.jpg" alt="Palette Forge: five colour swatches being separated out of an image by beams of light" width="720">
 
 </div>
