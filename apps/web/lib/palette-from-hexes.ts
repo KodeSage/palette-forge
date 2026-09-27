@@ -20,10 +20,16 @@ import {
   type Swatch,
 } from "palette-forge";
 
-export function paletteFromHexes(hexes: string[]): Palette {
-  const candidates = hexes.map((hex) => {
+/**
+ * `weights`, when known (e.g. how often a site's CSS uses each colour), become
+ * real shares so role inference can favour the colours that dominate.
+ */
+export function paletteFromHexes(hexes: string[], weights?: number[]): Palette {
+  const total = weights?.reduce((sum, w) => sum + w, 0) ?? 0;
+  const candidates = hexes.map((hex, i) => {
     const rgb = fromHex(hex);
-    return { rgb, oklch: rgbToOklch(rgb), share: 1 / hexes.length };
+    const share = weights && total > 0 ? weights[i]! / total : 1 / hexes.length;
+    return { rgb, oklch: rgbToOklch(rgb), share };
   });
 
   const roles = assignRoles(candidates);

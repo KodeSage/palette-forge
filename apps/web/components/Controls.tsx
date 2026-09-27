@@ -20,11 +20,14 @@ export function Controls({
   onChange,
   onReshuffle,
   disabled,
+  clusteringDisabled = false,
 }: {
   settings: ForgeSettings;
   onChange: (next: Partial<ForgeSettings>) => void;
   onReshuffle: () => void;
   disabled: boolean;
+  /** True when the palette didn't come from k-means, so seed and space are moot. */
+  clusteringDisabled?: boolean;
 }) {
   return (
     <div className="mt-5">
@@ -64,7 +67,7 @@ export function Controls({
         </div>
 
         <div>
-          <Button onClick={onReshuffle} disabled={disabled}>
+          <Button onClick={onReshuffle} disabled={disabled || clusteringDisabled}>
             Try a different split
           </Button>
           <Hint>
@@ -85,7 +88,7 @@ export function Controls({
             Colour space
             <select
               value={settings.space}
-              disabled={disabled}
+              disabled={disabled || clusteringDisabled}
               onChange={(event) => onChange({ space: event.target.value as ColorSpace })}
               className="cursor-pointer rounded-[5px] border border-line bg-surface-2 px-2 py-1.5 font-mono text-[10px] uppercase tracking-[.08em] text-txt hover:border-line-bright"
             >

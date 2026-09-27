@@ -13,3 +13,5 @@ coverage/
 # Never commit registry credentials
 .npmrc
 .vercel
+/brag-output/
+/platett_forge.mp4

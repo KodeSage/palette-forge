@@ -38,7 +38,7 @@ export default function Home() {
             Extract a brand palette. Generate the tokens.
           </h1>
           <p className="mt-2.5 max-w-[62ch] text-sm text-muted">
-            Drop in a logo or a screenshot. Palette Forge finds the main colours, works out
+            Drop in a logo or a screenshot, or paste a website link. Palette Forge finds the main colours, works out
             which one is your brand colour and which is your text colour, checks that they
             can be read together, and writes the CSS for you.
           </p>
@@ -50,7 +50,8 @@ export default function Home() {
             with no jargon in it. Two minutes.
           </p>
           <p className="mt-3 font-mono text-[11px] text-faint">
-            Nothing is uploaded. Every pixel stays in your browser.
+            Images never leave your browser. Website links are fetched by the server, which
+            only reads the page&rsquo;s public HTML and CSS.
           </p>
         </header>
 
